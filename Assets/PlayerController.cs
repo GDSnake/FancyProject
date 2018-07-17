@@ -5,14 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float movSpeed = 12f;
-    public float turningSpeed = 180f;
-    public AudioSource movementAudio;
-    public AudioClip idleSound;
-    public AudioClip drivingSound;
-    public float pitchRange = 0.2f;
+    public float MovSpeed = 12f;
+    public float TurningSpeed = 180f;
+    public AudioSource MovementAudio;
+    public AudioClip IdleSound;
+    public AudioClip DrivingSound;
+    public float PitchRange = 0.2f;
+    public GameObject Shot;
+    public Transform ShotSpawn;
+    public float FireRate = 0.5f;
 
- 
+    private float nextFire = 0.0f;
     private Rigidbody rb;
     private float movementInputValue;
     private float turnInputValue;
@@ -21,7 +24,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        originaPitch = movementAudio.pitch;
+        originaPitch = MovementAudio.pitch;
     }
 
     void Awake()
@@ -31,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        rb.isKinematic = true;
+        rb.isKinematic = false;
         movementInputValue = 0f;
         turnInputValue = 0f;
     }
@@ -50,9 +53,11 @@ public class PlayerController : MonoBehaviour
          
     }
 
+    
+
     private void Turn()
     {
-        float turn = turnInputValue * turningSpeed * Time.deltaTime;
+        float turn = turnInputValue * TurningSpeed * Time.deltaTime;
 
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
@@ -61,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 movement = transform.forward * movementInputValue * movSpeed * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * MovSpeed * Time.deltaTime;
 
         rb.MovePosition(rb.position + movement);
     }
@@ -72,25 +77,31 @@ public class PlayerController : MonoBehaviour
         turnInputValue = Input.GetAxis("Horizontal");
 
 	    EngineAudio();
+	    if (Input.GetButton("Fire1") && Time.time > nextFire)
+	    {
+	        nextFire = Time.time + FireRate;
+           Instantiate(Shot, ShotSpawn.position, ShotSpawn.rotation);
+        }
+	    
 	}
 
     private void EngineAudio()
     {
         if (Mathf.Abs(movementInputValue) < 0.1f && Mathf.Abs(turnInputValue) < 0.1f)
         {
-            if (movementAudio.clip == drivingSound)
+            if (MovementAudio.clip == DrivingSound)
             {
-                movementAudio.clip = idleSound;
-                movementAudio.pitch = Random.Range(originaPitch - pitchRange, originaPitch + pitchRange);
-                movementAudio.Play();
+                MovementAudio.clip = IdleSound;
+                MovementAudio.pitch = Random.Range(originaPitch - PitchRange, originaPitch + PitchRange);
+                MovementAudio.Play();
             }
         }
         else
         {
-            if (movementAudio.clip == idleSound) {
-                movementAudio.clip = drivingSound;
-                movementAudio.pitch = Random.Range(originaPitch - pitchRange, originaPitch + pitchRange);
-                movementAudio.Play();
+            if (MovementAudio.clip == IdleSound) {
+                MovementAudio.clip = DrivingSound;
+                MovementAudio.pitch = Random.Range(originaPitch - PitchRange, originaPitch + PitchRange);
+                MovementAudio.Play();
             }
         }
     }

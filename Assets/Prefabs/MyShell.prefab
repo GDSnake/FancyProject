@@ -349,7 +349,7 @@ MonoBehaviour:
   MaxLifeTime: 2
   ExplosionRadius: 5
   BulletSpeed: 15
-  damage: 25
+  damage: 20
 --- !u!136 &136295015209435554
 CapsuleCollider:
   m_ObjectHideFlags: 1
