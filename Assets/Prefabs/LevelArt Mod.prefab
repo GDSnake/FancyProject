@@ -124,7 +124,9 @@ GameObject:
   - component: {fileID: 136919657437153902}
   - component: {fileID: 136687263051174294}
   - component: {fileID: 136229671884084772}
-  m_Layer: 0
+  - component: {fileID: 65058341947024930}
+  - component: {fileID: 114098562494443376}
+  m_Layer: 11
   m_Name: Cliff (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,9 +235,10 @@ GameObject:
   - component: {fileID: 136602643980164698}
   - component: {fileID: 135896348310552788}
   - component: {fileID: 114685032595320824}
+  - component: {fileID: 114993503997355764}
   m_Layer: 10
   m_Name: OilStorage
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1071,6 +1074,7 @@ GameObject:
   - component: {fileID: 136540784876347622}
   - component: {fileID: 135021920220945792}
   - component: {fileID: 114323999750089754}
+  - component: {fileID: 114623117323411632}
   m_Layer: 10
   m_Name: Radar
   m_TagString: Enemy
@@ -1172,7 +1176,8 @@ GameObject:
   - component: {fileID: 136814370821960728}
   - component: {fileID: 136635775358295324}
   - component: {fileID: 136824120069085892}
-  m_Layer: 0
+  - component: {fileID: 114964294095970756}
+  m_Layer: 11
   m_Name: Cliff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1324,9 @@ GameObject:
   - component: {fileID: 136538128264766326}
   - component: {fileID: 136729268687210480}
   - component: {fileID: 136328915984017388}
-  m_Layer: 0
+  - component: {fileID: 65627017364384468}
+  - component: {fileID: 114477852054005728}
+  m_Layer: 11
   m_Name: Cliff (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,9 +1411,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4720041498970378}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Boundaries
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
@@ -1452,7 +1459,9 @@ GameObject:
   - component: {fileID: 136372755421671510}
   - component: {fileID: 136908164423736578}
   - component: {fileID: 136632795511799442}
-  m_Layer: 0
+  - component: {fileID: 65070850650354620}
+  - component: {fileID: 114842465446318452}
+  m_Layer: 11
   m_Name: Cliff (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,9 +1693,10 @@ GameObject:
   - component: {fileID: 65267869760715280}
   - component: {fileID: 135685418502046650}
   - component: {fileID: 114987406758107910}
+  - component: {fileID: 114796811280829960}
   m_Layer: 10
   m_Name: Refinery
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1873,9 +1883,10 @@ GameObject:
   - component: {fileID: 136820986713320412}
   - component: {fileID: 135280913514806178}
   - component: {fileID: 114959980870602530}
+  - component: {fileID: 114836431554618426}
   m_Layer: 10
   m_Name: OilStorage (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7419,6 +7430,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 126dbcddb53386c4f969fdf0c555e822, type: 3}
+--- !u!65 &65058341947024930
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064007279818766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 102.574875, y: 11.896666, z: 6.013138}
+  m_Center: {x: 3.4625359, y: 4.6348534, z: -51.75245}
 --- !u!65 &65059086355582872
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -7431,6 +7454,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.531517, y: 3.1525688, z: 2.7932544}
   m_Center: {x: 2.0767896, y: 0.48130724, z: -0.5640873}
+--- !u!65 &65070850650354620
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694825733898638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 102.574875, y: 11.896666, z: 6.013138}
+  m_Center: {x: 3.4625359, y: 4.6348534, z: -51.75245}
 --- !u!65 &65090655447770594
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -7762,7 +7797,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1593994989530642}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 102.574875, y: 11.896666, z: 14.550201}
@@ -7779,6 +7814,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.657323, y: 1.6386302, z: 2.4416156}
   m_Center: {x: 0.86928654, y: -0.18499708, z: -2.9708207}
+--- !u!65 &65627017364384468
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656614442286502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 102.574875, y: 11.896666, z: 6.013138}
+  m_Center: {x: 3.4625359, y: 4.6348534, z: -51.75245}
 --- !u!65 &65691526550701926
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -8227,6 +8274,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114098562494443376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064007279818766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4588288ce71e47e40a5c3a49893a489e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114174978990901508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8360,6 +8418,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114477852054005728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656614442286502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4588288ce71e47e40a5c3a49893a489e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114550718045223780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8477,6 +8546,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114623117323411632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1565296692578524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7581dc612f6835d47ae38e3c7ae95812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114650194626910294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8525,6 +8605,39 @@ MonoBehaviour:
   ShootingAudio: {fileID: 0}
   ChargingClip: {fileID: 0}
   FireClip: {fileID: 0}
+--- !u!114 &114796811280829960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781548037266872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7581dc612f6835d47ae38e3c7ae95812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114836431554618426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914654134395330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7581dc612f6835d47ae38e3c7ae95812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114842465446318452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694825733898638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4588288ce71e47e40a5c3a49893a489e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114959980870602530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8541,6 +8654,17 @@ MonoBehaviour:
   ShootingAudio: {fileID: 0}
   ChargingClip: {fileID: 0}
   FireClip: {fileID: 0}
+--- !u!114 &114964294095970756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593994989530642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4588288ce71e47e40a5c3a49893a489e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114978461076006634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8569,6 +8693,17 @@ MonoBehaviour:
   ShootingAudio: {fileID: 0}
   ChargingClip: {fileID: 0}
   FireClip: {fileID: 0}
+--- !u!114 &114993503997355764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121665591986380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7581dc612f6835d47ae38e3c7ae95812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135021920220945792
 SphereCollider:
   m_ObjectHideFlags: 1

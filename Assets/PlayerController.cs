@@ -80,7 +80,20 @@ public class PlayerController : MonoBehaviour
 	    if (Input.GetButton("Fire1") && Time.time > nextFire)
 	    {
 	        nextFire = Time.time + FireRate;
-           Instantiate(Shot, ShotSpawn.position, ShotSpawn.rotation);
+
+	        if (TargetEnemy.LockedOn)
+	        {
+	            Quaternion direction = TargetEnemy.NearByEnemies[TargetEnemy.LockedEnemy].transform.rotation;
+	            Vector3 rot = direction.eulerAngles;
+	            rot = new Vector3(rot.x, rot.y + 180, rot.z);
+	            direction = Quaternion.Euler(rot);
+	            Instantiate(Shot, ShotSpawn.position, direction);
+	        }
+	        else
+	        {
+                Instantiate(Shot, ShotSpawn.position, ShotSpawn.rotation);
+            }
+           
         }
 	    
 	}

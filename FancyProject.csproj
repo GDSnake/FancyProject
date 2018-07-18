@@ -327,6 +327,7 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+    <Compile Include="Assets\EnemyInView.cs" />
     <Compile Include="Assets\FaceCamera.cs" />
     <Compile Include="Assets\Mover.cs" />
     <Compile Include="Assets\PlayerController.cs" />
@@ -388,6 +389,7 @@
     <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
     <Compile Include="Assets\Scripts\WheelDrive.cs" />
     <Compile Include="Assets\SimpleTurret.cs" />
+    <Compile Include="Assets\TargetEnemy.cs" />
     <Compile Include="Assets\TextPosition.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
   </ItemGroup>
