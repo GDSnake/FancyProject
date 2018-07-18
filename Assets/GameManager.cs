@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Text LoseText;
     public Text NameText;
 
-    public GameObject PlayerSpawnPoint, EnemySpawnPoint1, EnemySpawnPoint2, EnemySpawnPoint3, EnemySpawnPoint4;
+    //public GameObject PlayerSpawnPoint, EnemySpawnPoint1, EnemySpawnPoint2, EnemySpawnPoint3, EnemySpawnPoint4;
 
     private bool gameOver, restart;
     // Use this for initialization

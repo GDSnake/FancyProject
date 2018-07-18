@@ -14,7 +14,7 @@ public class TargetEnemy : MonoBehaviour
     public  static int LockedEnemy;
 
     public static List<EnemyInView> NearByEnemies = new List<EnemyInView>();
-
+    public List<EnemyInView> near = NearByEnemies;
 	// Use this for initialization
 	void Start () {
   

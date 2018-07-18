@@ -2,21 +2,31 @@ using UnityEngine;
 
 public class UIDirectionControl : MonoBehaviour
 {
-    public bool m_UseRelativeRotation = true;  
+    public bool UseRelativeRotation = true;
+    private Transform player;
 
-
-    private Quaternion m_RelativeRotation;     
+    private Quaternion RelativeRotation;     
 
 
     private void Start()
     {
-        m_RelativeRotation = transform.parent.localRotation;
+        RelativeRotation = transform.parent.localRotation;
     }
 
 
     private void Update()
     {
-        if (m_UseRelativeRotation)
-            transform.rotation = m_RelativeRotation;
+        if (UseRelativeRotation)
+            transform.rotation = RelativeRotation;
+        if (gameObject.tag == "Enemy")
+        {
+            player = GameObject.FindWithTag("Player").transform;
+            /*Quaternion direction = transform.rotation;
+            Vector3 rot = direction.eulerAngles;
+            rot = new Vector3(rot.x+90, rot.y+45, rot.z);
+            direction = Quaternion.Euler(rot);
+            transform.rotation=direction;*/
+            transform.LookAt(player);
+        }
     }
 }

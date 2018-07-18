@@ -11,35 +11,30 @@ public class ObjectHealth : MonoBehaviour
     public Color zeroHealthColor = Color.red;    
     public GameObject explosionPrefab;
 
-    private LayerMask _ownLayer;
+    
     private GameManager _gameManager;
-    private AudioSource explosionAudio;          
-    private ParticleSystem explosionParticles;   
-    private float currentHealth;  
-    private bool isDead;
+    private AudioSource _explosionAudio;          
+    private ParticleSystem _explosionParticles;   
+    private float _currentHealth;  
+    private bool _isDead;
 
     private void Start()
     {
-        _ownLayer = gameObject.layer;
-        GameObject gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
-        if (gameControllerObject != null)
-        {
-            _gameManager = gameControllerObject.GetComponent<GameManager>();
-        }
+        
     }
     private void Awake()
     {
-        explosionParticles = Instantiate(explosionPrefab).GetComponent<ParticleSystem>();
-        explosionAudio = explosionParticles.GetComponent<AudioSource>();
+        _explosionParticles = Instantiate(explosionPrefab).GetComponent<ParticleSystem>();
+        _explosionAudio = _explosionParticles.GetComponent<AudioSource>();
 
-        explosionParticles.gameObject.SetActive(false);
+        _explosionParticles.gameObject.SetActive(false);
     }
 
 
     private void OnEnable()
     {
-        currentHealth = startingHealth;
-        isDead = false;
+        _currentHealth = startingHealth;
+        _isDead = false;
 
         SetHealthUI();
     }
@@ -47,10 +42,10 @@ public class ObjectHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
+        _currentHealth -= amount;
         SetHealthUI();
 
-        if (currentHealth <= 0f && !isDead) {
+        if (_currentHealth <= 0f && !_isDead) {
             OnDeath();
         }
 
@@ -59,9 +54,9 @@ public class ObjectHealth : MonoBehaviour
 
     private void SetHealthUI()
     {
-        slider.value = currentHealth;
+        slider.value = _currentHealth;
 
-        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, currentHealth / startingHealth);
+        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, _currentHealth / startingHealth);
 
 
     }
@@ -69,15 +64,17 @@ public class ObjectHealth : MonoBehaviour
 
     private void OnDeath()
     {
-        isDead = true;
-        explosionParticles.transform.position = transform.position;
-        explosionParticles.gameObject.SetActive(true);
+        _isDead = true;
+        _explosionParticles.transform.position = transform.position;
+        _explosionParticles.gameObject.SetActive(true);
 
-        explosionParticles.Play();
+        _explosionParticles.Play();
 
-        explosionAudio.Play();
+        _explosionAudio.Play();
 
-        gameObject.SetActive(false);
-        _gameManager.GameOver();
+        this.gameObject.SetActive(false);
+        if(gameObject.tag=="Player")
+            _gameManager.GameOver();
+        
     }
 }
