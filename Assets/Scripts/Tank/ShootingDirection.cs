@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ShootingDirection : MonoBehaviour
 {
-    //public LayerMask PlayerMask;    
+    //public LayerMask OwnMask;    
     Transform player;
     public GameObject Shell;            
     public Transform FireTransform;              
@@ -57,8 +57,7 @@ public class ShootingDirection : MonoBehaviour
 
     void Update()
     {
-        // Track the current state of the fire button and make decisions based on the current launch force.
-        //transform.LookAt(2* transform.position - player.position);
+        
         transform.LookAt(player);
     }
 

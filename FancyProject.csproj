@@ -304,7 +304,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Completed-Assets\Scripts\Camera\CameraControl.cs" />
-    <Compile Include="Assets\_Completed-Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\Tank\TankHealth.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\Tank\TankMovement.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\UI\UIDirectionControl.cs" />
@@ -329,6 +328,7 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\EnemyInView.cs" />
     <Compile Include="Assets\FaceCamera.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Mover.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
@@ -380,10 +380,9 @@
     <Compile Include="Assets\Scripts\DriftCamera.cs" />
     <Compile Include="Assets\Scripts\EasySuspension.cs" />
     <Compile Include="Assets\Scripts\GraphOverlay.cs" />
-    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TankManager.cs" />
     <Compile Include="Assets\Scripts\Shell\ShellExplosion.cs" />
-    <Compile Include="Assets\Scripts\Tank\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\Tank\ObjectHealth.cs" />
     <Compile Include="Assets\Scripts\Tank\ShootingDirection.cs" />
     <Compile Include="Assets\Scripts\Tank\TankMovement.cs" />
     <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />

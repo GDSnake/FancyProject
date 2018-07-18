@@ -2,7 +2,7 @@
 
 public class ShellExplosion : MonoBehaviour
 {
-    public LayerMask PlayerMask;
+    public LayerMask OwnMask;
     public ParticleSystem ExplosionParticles;       
     public AudioSource ExplosionAudio;              
     public float MaxDamage = 100f;                  
@@ -10,7 +10,7 @@ public class ShellExplosion : MonoBehaviour
     public float MaxLifeTime = 3f;                  
     public float ExplosionRadius = 5f;
     public float BulletSpeed = 20f;
-    public float damage = 25f;
+    public float Damage = 25f;
     private Rigidbody rb;
 
     private void Start()
@@ -18,13 +18,14 @@ public class ShellExplosion : MonoBehaviour
         Destroy(gameObject, MaxLifeTime);
         rb = GetComponent<Rigidbody>();
         rb.AddRelativeForce(0, 0, BulletSpeed, ForceMode.Impulse);
+        
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
         
-        Collider[] colliders = Physics.OverlapSphere(transform.position, ExplosionRadius, PlayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, ExplosionRadius, OwnMask);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -34,14 +35,14 @@ public class ShellExplosion : MonoBehaviour
                 continue;
             }
             targetRigidbody.AddExplosionForce(ExplosionForce,transform.position,ExplosionRadius);
-            PlayerHealth targetHealth = targetRigidbody.GetComponent<PlayerHealth>();
+            ObjectHealth targetHealth = targetRigidbody.GetComponent<ObjectHealth>();
 
             if(!targetHealth)
                 continue;
 
             
 
-            targetHealth.TakeDamage(damage);
+            targetHealth.TakeDamage(Damage);
         }
 
         ExplosionParticles.transform.parent = null;

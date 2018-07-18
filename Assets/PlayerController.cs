@@ -87,13 +87,14 @@ public class PlayerController : MonoBehaviour
 	            Vector3 rot = direction.eulerAngles;
 	            rot = new Vector3(rot.x, rot.y + 180, rot.z);
 	            direction = Quaternion.Euler(rot);
+	           
 	            Instantiate(Shot, ShotSpawn.position, direction);
 	        }
 	        else
 	        {
                 Instantiate(Shot, ShotSpawn.position, ShotSpawn.rotation);
             }
-           
+          
         }
 	    
 	}
