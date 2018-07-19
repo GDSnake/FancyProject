@@ -12,7 +12,7 @@ public class ObjectHealth : MonoBehaviour
     public GameObject explosionPrefab;
 
     
-    private GameManager _gameManager;
+    public GameManager _gameManager;
     private AudioSource _explosionAudio;          
     private ParticleSystem _explosionParticles;   
     private float _currentHealth;  
@@ -73,8 +73,15 @@ public class ObjectHealth : MonoBehaviour
         _explosionAudio.Play();
 
         this.gameObject.SetActive(false);
-        if(gameObject.tag=="Player")
+        if (gameObject.tag == "Player")
+        {
             _gameManager.GameOver();
+        }
+            
+        else if (gameObject.tag == "Enemy")
+        {
+            _gameManager.EnemyKilled();
+        }
         
     }
 }

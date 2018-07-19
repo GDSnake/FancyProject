@@ -320,12 +320,14 @@
     <Compile Include="Assets\Scripts\Shell\PlayerShellExplosion.cs" />
     <Compile Include="Assets\Scripts\TargetEnemy.cs" />
     <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
+    <Compile Include="Assets\ShaderControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EffectExamples\Editor\PackageManagerAssembly\PackageImportList.txt" />
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\Fonts\Bowlby_One\OFL.txt" />
     <None Include="Assets\Fonts\LICENSE.txt" />
+    <None Include="Assets\Shaders\GradientLitShader.shader" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

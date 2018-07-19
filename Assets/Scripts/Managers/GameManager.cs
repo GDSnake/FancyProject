@@ -11,41 +11,52 @@ public class GameManager : MonoBehaviour
     public Text WinText;
     public Text LoseText;
     public Text NameText;
-
-    //public GameObject PlayerSpawnPoint, EnemySpawnPoint1, EnemySpawnPoint2, EnemySpawnPoint3, EnemySpawnPoint4;
-
-    private bool gameOver, restart;
+    public int NumberOfEnemies = 4;
+   
+    
+    private bool _gameOver, _restart;
     // Use this for initialization
     void Start ()
     {
-        gameOver = false;
-        restart = false;
+        _gameOver = false;
+        _restart = false;
         RestartText.enabled = false;
         LoseText.enabled = false;
         WinText.enabled = false;
         NameText.enabled = false;
+        
     }
 
     public void GameOver()
     {
-        gameOver = true;
+        _gameOver = true;
         LoseText.enabled = true;
         RestartText.enabled = true;
-        restart = true;
+        _restart = true;
     }
 
     public void WinScreen()
     {
-        gameOver = true;
+        _gameOver = true;
         WinText.enabled = true;
         RestartText.enabled = true;
-        restart = true;
+        _restart = true;
     }
 	// Update is called once per frame
 	void Update () {
-	    if (restart && Input.GetKeyDown(KeyCode.R))
+	    if (_restart && Input.GetKeyDown(KeyCode.R))
 	    {
 	        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	    }
 	}
+
+    public void EnemyKilled()
+    {
+        NumberOfEnemies--;
+        if (NumberOfEnemies == 0)
+        {
+            WinScreen();
+           
+        }
+    }
 }
