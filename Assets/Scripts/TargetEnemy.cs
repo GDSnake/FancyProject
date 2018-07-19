@@ -28,7 +28,11 @@ public class TargetEnemy : MonoBehaviour
     
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKeyDown(KeyCode.Tab) && !LockedOn)
+	    if (VisibleEnemies.Count == 0)
+	    {
+            TurnOffLockOn();
+        }
+	    else if (Input.GetKeyDown(KeyCode.Tab) && !LockedOn)
 	    {
          
             if (VisibleEnemies.Count > 0)
@@ -39,7 +43,7 @@ public class TargetEnemy : MonoBehaviour
 	            _target = VisibleEnemies[LockedEnemy];
 	        }
 	    }
-        else if ((Input.GetKeyDown(KeyCode.X) && LockedOn) || VisibleEnemies.Count == 0)
+        else if ((Input.GetKeyDown(KeyCode.X) && LockedOn))
 	    {
 	        TurnOffLockOn();
 	    }
