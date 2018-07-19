@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
-
+/// <summary>
+/// EnemyShellExplosion sends the damage to the Player GameObject if they collide, and takes care of destroying the shell and playing the audio and particles(Last two apparently
+/// not working well)
+/// </summary>
 public class EnemyShellExplosion : MonoBehaviour
 {
     
     
-    public ParticleSystem ExplosionParticles;       
-    public AudioSource ExplosionAudio;              
-    public float MaxDamage = 100f;                  
-    public float ExplosionForce = 1000f;            
+    public ParticleSystem ExplosionParticles; // ? not working       
+    public AudioSource ExplosionAudio; // ? not working                     
     public float MaxLifeTime = 3f;                  
-    public float ExplosionRadius = 5f;
     public float BulletSpeed = 20f;
-    public float Damage = 25f;
+    public float Damage = 20f;
     private Rigidbody rb;
 
     private void Start()

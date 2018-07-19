@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
-
+///<summary>
+/// PlayerShellExplosion sends the damage to the Enemy GameObject that collides with, and takes care of destroying the shell and playing the audio and particles(Last two apparently
+/// not working well)
+/// </summary>
 public class PlayerShellExplosion : MonoBehaviour
 {
    
     
-    public ParticleSystem ExplosionParticles;       
-    public AudioSource ExplosionAudio;              
-    public float MaxDamage = 100f;                  
-    public float ExplosionForce = 1000f;            
+    public ParticleSystem ExplosionParticles;  //? not working  
+    public AudioSource ExplosionAudio;   //? not working                      
     public float MaxLifeTime = 5f;                  
-    public float ExplosionRadius = 5f;
     public float BulletSpeed = 20f;
     public float Damage = 25f;
     private Rigidbody rb;

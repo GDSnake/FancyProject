@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// EnemyInView class checks if the enemy is on sight of the camera
+/// </summary>
 public class EnemyInView : MonoBehaviour
 {
     private Camera cam;
@@ -23,11 +25,11 @@ public class EnemyInView : MonoBehaviour
 	    if (onScreen && addOnlyOnce)
 	    {
 	        addOnlyOnce = false;
-	        TargetEnemy.NearByEnemies.Add(this);
+	        TargetEnemy.VisibleEnemies.Add(this);
 	    }
 	    else if(!onScreen)
 	    {
-	        TargetEnemy.NearByEnemies.Remove(this);
+	        TargetEnemy.VisibleEnemies.Remove(this);
 	        addOnlyOnce = true;
 	    }
 	}

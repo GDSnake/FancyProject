@@ -2,30 +2,30 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// ObjectHealth class governs the health of every shootable object, updates its health bar and takes care of their "Death"
+/// </summary>
 public class ObjectHealth : MonoBehaviour
 {
+    
     public float startingHealth = 100f;          
     public Slider slider;                        
     public Image fillImage;                      
     public Color fullHealthColor = Color.green;  
     public Color zeroHealthColor = Color.red;    
     public GameObject explosionPrefab;
+    public GameManager GameManager;
+    public AudioSource ExplosionAudio;
+    public AudioClip ExplosionClip;   
 
-    
-    public GameManager _gameManager;
-    private AudioSource _explosionAudio;          
     private ParticleSystem _explosionParticles;   
     private float _currentHealth;  
     private bool _isDead;
 
-    private void Start()
-    {
-        
-    }
+   
     private void Awake()
     {
         _explosionParticles = Instantiate(explosionPrefab).GetComponent<ParticleSystem>();
-        _explosionAudio = _explosionParticles.GetComponent<AudioSource>();
 
         _explosionParticles.gameObject.SetActive(false);
     }
@@ -70,18 +70,27 @@ public class ObjectHealth : MonoBehaviour
 
         _explosionParticles.Play();
 
-        _explosionAudio.Play();
-
-        this.gameObject.SetActive(false);
+        ExplosionAudio.Play();
+        
+        
         if (gameObject.tag == "Player")
         {
-            _gameManager.GameOver();
+            
+            GameManager.GameOver();
         }
             
-        else if (gameObject.tag == "Enemy")
+        else
         {
-            _gameManager.EnemyKilled();
+            
+            TargetEnemy.VisibleEnemies.Remove(gameObject.GetComponent<EnemyInView>());
+            TargetEnemy.TurnOffLockOn();
+            GameManager.EnemyKilled();
         }
+
+        this.gameObject.SetActive(false);
         
     }
+
+   
+
 }

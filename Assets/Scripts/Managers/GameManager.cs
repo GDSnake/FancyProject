@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/// <summary>
+/// GameManager class controlls the display of text during the game and takes care of restarting it and checking win condition
+/// 
+/// </summary>
 public class GameManager : MonoBehaviour
 {
 
@@ -11,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Text WinText;
     public Text LoseText;
     public Text NameText;
+    public Text HelpText;
     public int NumberOfEnemies = 4;
    
     
@@ -23,8 +27,8 @@ public class GameManager : MonoBehaviour
         RestartText.enabled = false;
         LoseText.enabled = false;
         WinText.enabled = false;
-        NameText.enabled = false;
-        
+        NameText.enabled = true;
+        HelpText.enabled = true;
     }
 
     public void GameOver()
@@ -44,8 +48,17 @@ public class GameManager : MonoBehaviour
     }
 	// Update is called once per frame
 	void Update () {
-	    if (_restart && Input.GetKeyDown(KeyCode.R))
+	    if (Input.anyKeyDown)
 	    {
+            NameText.enabled = false;
+	    }
+	    if (Input.GetKeyDown(KeyCode.H))
+	    {
+	        HelpText.enabled = !HelpText.enabled;
+	    }
+	    if (Input.GetKeyDown(KeyCode.R))
+	    {
+            TargetEnemy.VisibleEnemies.Clear();
 	        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	    }
 	}

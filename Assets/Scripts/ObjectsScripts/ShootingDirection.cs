@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// ShootingDirection class that points the fireTransform into the player, and it enters it's range, shoots a bullet every 2 secons
+/// </summary>
 public class ShootingDirection : MonoBehaviour
 {
-    //public LayerMask OwnMask;    
+
     Transform player;
     public GameObject Shell;            
     public Transform FireTransform;              
@@ -13,8 +15,6 @@ public class ShootingDirection : MonoBehaviour
     public AudioClip FireClip;         
     
 
-    
-  
     private Quaternion targetPos;
 
 
@@ -45,29 +45,30 @@ public class ShootingDirection : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             StopCoroutine("Shooting");
-        }
-        
-            
-            
-        
-        
+        }   
     }
-
-  
 
     void Update()
     {
         
         transform.LookAt(player);
     }
-
+    /// <summary>
+    /// Shooting coroutine, makes a instance of the EnemyShell prefab and shoots in the direction of the player every 2 seconds
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Shooting()
     {
         while (true)
         {
-          Instantiate(Shell, FireTransform.position, FireTransform.rotation);
-           
-            yield return new WaitForSeconds(2);
+            ShootingAudio.clip = FireClip;
+            ShootingAudio.Play();
+            Instantiate(Shell, FireTransform.position, FireTransform.rotation);
+            yield return new WaitForSeconds(1);
+            ShootingAudio.clip = ChargingClip;
+            ShootingAudio.Play();
+            yield return new WaitForSeconds(1);
+
         }
     }
 

@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// PlayerController class takes care of the player's ship movement, shooting and lockOn actions
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
 
     public float MovSpeed = 12f;
     public float TurningSpeed = 180f;
     public AudioSource MovementAudio;
+    public AudioSource ShootAudio;
     public AudioClip IdleSound;
     public AudioClip DrivingSound;
+    public AudioClip ShootClip;
     public float PitchRange = 0.2f;
     public GameObject Shot;
     public Transform ShotSpawn;
@@ -21,10 +26,10 @@ public class PlayerController : MonoBehaviour
     private float turnInputValue;
     private float originaPitch;
 
-    // Use this for initialization
     void Start ()
     {
         originaPitch = MovementAudio.pitch;
+        ShootAudio.clip = ShootClip;
     }
 
     void Awake()
@@ -80,12 +85,12 @@ public class PlayerController : MonoBehaviour
 	    if (Input.GetButton("Fire1") && Time.time > nextFire)
 	    {
 	        nextFire = Time.time + FireRate;
-
+            ShootAudio.Play();
 	        if (TargetEnemy.LockedOn)
 	        {
-	            Quaternion direction = TargetEnemy.NearByEnemies[TargetEnemy.LockedEnemy].transform.rotation;
+	            Quaternion direction = TargetEnemy.VisibleEnemies[TargetEnemy.LockedEnemy].transform.rotation; // Gets the current visible enemy on the array if any
 	            Vector3 rot = direction.eulerAngles;
-	            rot = new Vector3(rot.x, rot.y + 180, rot.z);
+	            rot = new Vector3(rot.x, rot.y + 180, rot.z); // Needs to rotate 180º degress on the Y axis to prevent shooting on the opposite direction
 	            direction = Quaternion.Euler(rot);
 	           
 	            Instantiate(Shot, ShotSpawn.position, direction);
@@ -98,7 +103,9 @@ public class PlayerController : MonoBehaviour
         }
 	    
 	}
-
+    /// <summary>
+    /// EngineAudio method takes care of switching Idle and Driving sounds as well giving a different pitch to the sound each time.
+    /// </summary>
     private void EngineAudio()
     {
         if (Mathf.Abs(movementInputValue) < 0.1f && Mathf.Abs(turnInputValue) < 0.1f)
