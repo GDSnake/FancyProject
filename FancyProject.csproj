@@ -287,7 +287,7 @@
     <Compile Include="Assets\Scripts\Shell\PlayerShellExplosion.cs" />
     <Compile Include="Assets\Scripts\TargetEnemy.cs" />
     <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
-    <Compile Include="Assets\ShaderControl.cs" />
+    <Compile Include="Assets\Shaders\ShaderControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EffectExamples\Editor\PackageManagerAssembly\PackageImportList.txt" />
